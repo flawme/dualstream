@@ -1,6 +1,6 @@
 # DualStream
 
-DualStream is a local web application that allows you to record your laptop screen or webcam while using your Android phone as a high-quality wireless microphone. It uses WebRTC to stream audio from your phone to your computer over a USB connection with zero latency.
+DualStream is a local web application that allows you to record your laptop screen or webcam while using your Android phone as a high-quality microphone. It uses WebRTC to stream audio from your phone to your computer over a USB connection with zero latency.
 
 ## Prerequisites
 
