@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DualStream</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="setup-screen" class="screen active">
+        <div class="glass-card">
+            <div class="logo">
+                <i class="fa-solid fa-video"></i> DualStream
+            </div>
+            <h1>Choose Your Role</h1>
+            <p>Select what this device will be used for</p>
+            
+            <div class="role-buttons">
+                <button class="role-btn laptop-btn" onclick="selectRole('laptop-camera')">
+                    <i class="fa-solid fa-camera"></i>
+                    <span>Record Camera & Phone Mic</span>
+                </button>
+                <button class="role-btn laptop-btn" onclick="selectRole('laptop-screen')">
+                    <i class="fa-solid fa-desktop"></i>
+                    <span>Record Screen & Phone Mic</span>
+                </button>
+                <button class="role-btn phone-btn" onclick="selectRole('phone')">
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+                    <span>Phone (High-Q Mic)</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="laptop-screen" class="screen">
+        <div class="studio-header">
+            <div class="logo"><i class="fa-solid fa-video"></i> DualStream Studio</div>
+            <div id="connection-status" class="status-badge disconnected"><i class="fa-solid fa-circle"></i> Waiting for Phone...</div>
+        </div>
+        
+        <div class="video-container">
+            <video id="local-video" autoplay muted playsinline></video>
+            <audio id="remote-audio" autoplay></audio>
+        </div>
+
+        <div class="controls">
+            <button id="record-btn" class="record-btn disabled" disabled>
+                <i class="fa-solid fa-circle"></i> <span>Start Recording</span>
+            </button>
+            <a id="download-link" style="display: none;"></a>
+        </div>
+    </div>
+
+    <div id="phone-screen" class="screen">
+        <div class="mic-container">
+            <div class="mic-status-text">Streaming Audio to Laptop</div>
+            <div class="mic-circle" id="mic-animation">
+                <i class="fa-solid fa-microphone"></i>
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
